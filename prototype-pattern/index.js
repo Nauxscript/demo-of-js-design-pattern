@@ -10,17 +10,17 @@ const Plane = function () {
 }
 
 const plane = new Plane()
-console.log(plane.blood); // 100
-console.log(plane.attackLevel); // 1
-console.log(plane.defenceLevel); // 1
+console.log(plane.blood) // 100
+console.log(plane.attackLevel) // 1
+console.log(plane.defenceLevel) // 1
 plane.blood = 80
 plane.attackLevel = 2
 plane.defenceLevel = 2
 
 const clonePlane = Object.create(plane)
-console.log(clonePlane.blood); // 80 
-console.log(clonePlane.attackLevel); // 2
-console.log(clonePlane.defenceLevel); // 2
+console.log(clonePlane.blood) // 80
+console.log(clonePlane.attackLevel) // 2
+console.log(clonePlane.defenceLevel) // 2
 
 clonePlane.blood = 50
-console.log(plane.blood); // 80 
+console.log(plane.blood) // 80

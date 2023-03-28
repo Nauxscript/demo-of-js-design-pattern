@@ -1,21 +1,17 @@
-interface Instance {
-  name: string
-  container: HTMLDivElement
-}
-
-export const initDialog = () => {
+const initDialog = (title = 'this is a dialog') => {
   const dialogContainer = document.createElement('div')
   dialogContainer.setAttribute('id', 'the-only-dialog-container')
+  dialogContainer.innerText = title
   const instance = {
-    name: 'this is a dialog',
+    title,
     container: dialogContainer,
   }
   return instance
 }
 
-const createSingleton = (fn) => {
-  let onlyInstance: Instance
-  return function (...arg) {
+const createSingleton = <P extends Array<unknown>, T>(fn: () => T) => {
+  let onlyInstance: T
+  return function (...arg: P) {
     onlyInstance = onlyInstance || fn.apply(this, arg)
     return onlyInstance
   }

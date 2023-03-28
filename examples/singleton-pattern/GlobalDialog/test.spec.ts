@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { createDialog } from '.'
+import { createAlert, createDialog } from './index'
 
 describe('Singleton Pattern: simple global dialog', () => {
   test('dialog is working', () => {
@@ -12,5 +12,11 @@ describe('Singleton Pattern: simple global dialog', () => {
     const firstDialog = createDialog()
     const secondDialog = createDialog()
     expect(firstDialog).toBe(secondDialog)
+  })
+
+  test('createAlert is also working fine', () => {
+    const msg = 'surprise! madafaka!'
+    const alert = createAlert(msg)
+    expect(alert.innerText).toBe(msg)
   })
 })

@@ -13,7 +13,7 @@
 ## Wow!
 
 ### Demo: 全局弹窗
-[全局弹窗 Global Dialog](./GlobalDialog/index.js)
+[全局弹窗 Global Dialog](./GlobalDialog/index.js): 通过单例模式，创建一个全局的弹窗；在创建时如果在之前已经创建过弹窗，这直接返回之前的弹窗对象。
 
 ### Demo: 全局缓存
-[全局缓存 Global Cache](./GlobalCache/index.js)
+~~[全局缓存 Global Cache]()~~

@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'vitest'
+import { methodStrategies } from '.'
 
 const getUserInfo = () => ({
   userId: 'root',
@@ -10,7 +11,7 @@ describe('Strategy Pattern: Third-Party Login Methods', () => {
     test('when the type of manufacturer is MF1 and method type is qrCode', () => {
       const userInfo = getUserInfo()
       const method = 'qrCode'
-      const requestData = getRequestData(method, userInfo)
+      const requestData = methodStrategies[method](userInfo)
       expect(requestData.model).toEqual(method)
       expect(requestData.damnParamA).toBeDefined()
       expect(requestData.userCode).toEqual(userInfo.userId)
@@ -19,7 +20,7 @@ describe('Strategy Pattern: Third-Party Login Methods', () => {
     test('when the type of manufacturer is MF1 and method type is SMS', () => {
       const userInfo = getUserInfo()
       const method = 'SMS'
-      const requestData = getRequestData(method, userInfo)
+      const requestData = methodStrategies[method](userInfo)
       expect(requestData.model).toEqual(method)
       expect(requestData.damnParamA).toBeDefined()
       expect(requestData.userCode).toEqual(userInfo.userId)
@@ -32,7 +33,7 @@ describe('Strategy Pattern: Third-Party Login Methods', () => {
       const form = {
         pinValue: '9527',
       }
-      const requestData = getRequestData(method, userInfo, form)
+      const requestData = methodStrategies[method](userInfo, form)
       expect(requestData.model).toEqual(method)
       expect(requestData.damnParamA).toBeDefined()
       expect(requestData.userCode).toEqual(userInfo.userId)
@@ -44,7 +45,7 @@ describe('Strategy Pattern: Third-Party Login Methods', () => {
     test('when the type of manufacturer is MF2 and method type is XXX_CODE', () => {
       const userInfo = getUserInfo()
       const method = 'XXX_CODE'
-      const requestData = getRequestData(method, userInfo)
+      const requestData = methodStrategies[method](userInfo)
       expect(requestData.method).toEqual(method)
       expect(requestData.damnParamB).toBeDefined()
       expect(requestData.account).toEqual(userInfo.userId)
@@ -53,7 +54,7 @@ describe('Strategy Pattern: Third-Party Login Methods', () => {
     test('when the type of manufacturer is MF2 and method type is XXX_SMS', () => {
       const userInfo = getUserInfo()
       const method = 'XXX_SMS'
-      const requestData = getRequestData(method, userInfo)
+      const requestData = methodStrategies[method](userInfo)
       expect(requestData.method).toEqual(method)
       expect(requestData.damnParamB).toBeDefined()
       expect(requestData.account).toEqual(userInfo.userId)
@@ -66,7 +67,7 @@ describe('Strategy Pattern: Third-Party Login Methods', () => {
       const form = {
         pinValue: '9527',
       }
-      const requestData = getRequestData(method, userInfo, form)
+      const requestData = methodStrategies[method](userInfo, form)
       expect(requestData.method).toEqual(method)
       expect(requestData.damnParamB).toBeDefined()
       expect(requestData.account).toEqual(userInfo.userId)

@@ -11,8 +11,19 @@
 
 ## Wow!
 
-### Demo: 全局弹窗
-[全局弹窗 Global Dialog](./GlobalDialog/index.js): 通过单例模式，创建一个全局的弹窗；在创建时如果在之前已经创建过弹窗，这直接返回之前的弹窗对象。
+### Demo: 第三方登录接入
 
-### Demo: 全局缓存
-~~[全局缓存 Global Cache]()~~
+对于一些医院信息系统来说，常常需要接入不同的厂商来实现如扫码登录、手机短信登录、PIN 码登录等；对于不同的医院，由于使用的厂商不一样，导致接口入参也不一致；如 A 医院的以上三种登录方式对应的接口入参是：
+
+- 扫码登录：用户帐号 `userCode`、登录方式 `model` 为指定的 `qrCode`、特殊业务入参 `damnParamA`
+- 短信登录：用户帐号 `userCode`、登录方式 `model` 为指定的 `SMS`、特殊业务入参 `damnParamA`、用户手机号 `cellphoneNumber`
+- PIN 码登录：用户帐号 `userCode`、登录方式 `model` 为指定的 `PIN`、特殊业务入参 `damnParamA`、PIN 码 `pinValue`
+
+而 B 医院的第三方登录接口的入参为：
+- 扫码登录：用户帐号 `account`、登录方式 `method` 为指定的 `XXX_CODE`、特殊业务入参 `damnParamB`
+- 短信登录：用户帐号 `account`、登录方式 `method` 为指定的 `XXX_SMS`、特殊业务入参 `damnParamB`、用户手机号 `phone`
+- PIN 码登录：用户帐号 `account`、登录方式 `method` 为指定的 `XXX_PIN`、特殊业务入参 `damnParamB`、PIN 码 `pin`
+
+对于不同的厂商接口，我们需要根据已有的用户数据和当前的厂商信息构造出对应的入参。
+
+[第三方登录接入 Third-Party Login Methods](./LoginMethods/index.js): 

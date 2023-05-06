@@ -11,4 +11,4 @@
 
 ### Demo: 第三方登录接入
 
-[第三方登录接入 Third-Party Login Methods](./ /index.js): 
+[第三方登录接入 Third-Party Login Methods](./index.js): 

@@ -11,4 +11,13 @@ TODO...
 
 ### Demo: 临床病历业务状态流转流程
 
+#### 状态
+
+- 待提交
+- 已审签
+- 待审签
+- 审签退回
+- 已打印
+
+
 [临床病历业务状态流转流程 Clinical medical record states transfer flow](./index.js): 
